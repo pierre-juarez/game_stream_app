@@ -6,44 +6,45 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct Home: View {
-    @State var tabSelected:Int = 2
-    var body: some View {
+  @State var tabSelected:Int = 2
+  var body: some View {
+    
+    
+    TabView (selection: $tabSelected){
       
+      Text("Perfil")
+        .font(.system(size: 30, weight: .bold, design: .rounded))
+        .tabItem{
+          Image(systemName: "person")
+          Text("Perfil")
+        }.tag(0)
       
-      TabView (selection: $tabSelected){
-        
-        Text("Perfil")
-          .font(.system(size: 30, weight: .bold, design: .rounded))
-          .tabItem{
-            Image(systemName: "person")
-            Text("Perfil")
-          }.tag(0)
-        
-        Text("Juegos")
-          .font(.system(size: 30, weight: .bold, design: .rounded))
-          .tabItem{
-            Image(systemName: "gamecontroller")
-            Text("Juegos")
-          }.tag(1)
-        
-        ScreenHone()
-          .tabItem{
-            Image(systemName: "house")
-            Text("Inicio")
-          }.tag(2)
-        
-        Text("Favoritos")
-          .font(.system(size: 30, weight: .bold, design: .rounded))
-          .tabItem{
-            Image(systemName: "heart")
-            Text("Favoritos")
-          }.tag(3)
-        
-      }
-      .accentColor(Color("White"))
+      Text("Juegos")
+        .font(.system(size: 30, weight: .bold, design: .rounded))
+        .tabItem{
+          Image(systemName: "gamecontroller")
+          Text("Juegos")
+        }.tag(1)
+      
+      ScreenHome()
+        .tabItem{
+          Image(systemName: "house")
+          Text("Inicio")
+        }.tag(2)
+      
+      Text("Favoritos")
+        .font(.system(size: 30, weight: .bold, design: .rounded))
+        .tabItem{
+          Image(systemName: "heart")
+          Text("Favoritos")
+        }.tag(3)
+      
     }
+    .accentColor(Color("White"))
+  }
   
   init(){
     UITabBar.appearance().backgroundColor = UIColor(Color("TabBarColor"))
@@ -54,7 +55,7 @@ struct Home: View {
   
 }
 
-struct ScreenHone:View{
+struct ScreenHome:View{
   @State var textSearch = ""
   var body: some View{
     
@@ -91,7 +92,11 @@ struct ScreenHone:View{
         .padding([.leading,.top,.bottom],11.0)
         .background(Color("ButtonNetworksColor"))
         .clipShape(Capsule())
-          
+        
+        ScrollView(showsIndicators: false) {
+          submoduleHome()
+        }
+        
       }.padding(.horizontal,18)
       
     }.navigationBarHidden(true)
@@ -105,8 +110,70 @@ struct ScreenHone:View{
   
 }
 
-struct Home_Previews: PreviewProvider {
-    static var previews: some View {
-        Home()
+struct submoduleHome:View{
+  
+  @State var url = "https://cdn.cloudflare.steamstatic.com/steam/apps/256658589/movie480.mp4"
+  @State var isPlayerActive = false
+  let urlVideos:[String] = ["https://cdn.cloudflare.steamstatic.com/steam/apps/256658589/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256671638/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256720061/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256814567/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256705156/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256801252/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256757119/movie480.mp4"]
+  
+  var body: some View{
+    
+    VStack{
+      Text("LOS MÁS POPULARES")
+        .font(.title3)
+        .foregroundColor(Color("White"))
+        .bold()
+        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+        .padding(.top)
+      
+      ZStack{
+        
+        Button {
+          url = urlVideos[0]
+          print("URL: \(url)")
+          isPlayerActive = true
+        } label: {
+          
+          VStack(spacing: 0){
+            Image("the_witcher")
+              .resizable()
+              .scaledToFill()
+            Text("The Witcher 3")
+              .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+              .background(Color("ButtonNetworksColor"))
+            
+          }
+          
+        }
+        
+        Image(systemName: "play.circle.fill")
+          .resizable()
+          .frame(width: 42, height: 42)
+          .foregroundColor(Color("White"))
+
+        
+        
+      }.frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+        .padding(.vertical)
+      
     }
+    
+    NavigationLink(
+      destination: VideoPlayer(player: AVPlayer(url: URL(string: url)!))
+        .frame(width: 400, height: 300),
+      isActive: $isPlayerActive,
+      label:{
+        EmptyView()
+      })
+    
+  }
+  
+  
+  
+}
+
+struct Home_Previews: PreviewProvider {
+  static var previews: some View {
+    Home()
+  }
 }
