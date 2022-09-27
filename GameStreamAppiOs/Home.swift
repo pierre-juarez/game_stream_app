@@ -156,6 +156,203 @@ struct submoduleHome:View{
       }.frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
         .padding(.vertical)
       
+      Text("CATEGORÍAS SUGERIDAS PARA TI")
+        .font(.title3)
+        .foregroundColor(Color("White"))
+        .bold()
+        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+        
+      
+      ScrollView(.horizontal,showsIndicators: false){
+        
+        HStack{
+          
+          Button(action:
+            {
+              print("")
+            }, label:
+                  {
+            
+            ZStack{
+              RoundedRectangle(cornerRadius: 8)
+                .fill(Color("ButtonNetworksColor"))
+                .frame(width: 160, height: 90)
+              
+              Image("fps")
+                .resizable()
+                .scaledToFill()
+                .frame(width: 42, height: 42)
+              
+            }
+            
+          })
+          
+          Button(action:
+            {
+              print("")
+            }, label:
+                  {
+            
+            ZStack{
+              RoundedRectangle(cornerRadius: 8)
+                .fill(Color("ButtonNetworksColor"))
+                .frame(width: 160, height: 90)
+              
+              Image("rpg")
+                .resizable()
+                .scaledToFill()
+                .frame(width: 42, height: 42)
+              
+            }
+            
+          })
+          
+          Button(action:
+            {
+              print("")
+            }, label:
+                  {
+            
+            ZStack{
+              RoundedRectangle(cornerRadius: 8)
+                .fill(Color("ButtonNetworksColor"))
+                .frame(width: 160, height: 90)
+              
+              Image("openWorld")
+                .resizable()
+                .scaledToFill()
+                .frame(width: 42, height: 42)
+              
+            }
+            
+          })
+          
+        }
+        
+        
+        
+      }
+      
+     Text("RECOMENDADOS PARA TI")
+        .font(.title3)
+        .foregroundColor(Color("White"))
+        .bold()
+        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+        .padding(.top)
+      
+      ScrollView(.horizontal,showsIndicators: false){
+        
+        HStack{
+          
+          Button(action:
+            {
+              url = urlVideos[1]
+              print("URL: \(url)")
+              isPlayerActive = true
+            }, label:
+                  {
+            
+            Image("battkefield")
+              .resizable()
+              .scaledToFill()
+              .frame(width: 240, height: 135)
+          })
+          
+          Button(action:
+            {
+              url = urlVideos[2]
+              print("URL: \(url)")
+              isPlayerActive = true
+            }, label:
+                  {
+            
+            Image("assassins_creed")
+              .resizable()
+              .scaledToFill()
+              .frame(width: 240, height: 135)
+          })
+          
+          Button(action:
+            {
+              url = urlVideos[3]
+              print("URL: \(url)")
+              isPlayerActive = true
+            }, label:
+                  {
+            
+            Image("farcry4")
+              .resizable()
+              .scaledToFill()
+              .frame(width: 240, height: 135)
+          })
+          
+        }
+        
+        
+        
+      }
+      
+      
+      Text("VIDEOS QUE PODRíAN GUSTARTE")
+        .font(.title3)
+        .foregroundColor(Color("White"))
+        .bold()
+        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+        .padding(.top)
+      
+      ScrollView(.horizontal,showsIndicators: false){
+        
+        HStack{
+          
+          Button(action:
+            {
+              url = urlVideos[1]
+              print("URL: \(url)")
+              isPlayerActive = true#imageLiteral(resourceName: "simulator_screenshot_1B7970A6-73ED-4158-A3AF-A15E3F175FB0.png")
+            }, label:
+                  {
+            
+            Image("lastofus")
+              .resizable()
+              .scaledToFill()
+              .frame(width: 240, height: 135)
+          })
+          
+          Button(action:
+            {
+              url = urlVideos[2]
+              print("URL: \(url)")
+              isPlayerActive = true
+            }, label:
+                  {
+            
+            Image("dest")
+              .resizable()
+              .scaledToFill()
+              .frame(width: 240, height: 135)
+          })
+          
+          Button(action:
+            {
+              url = urlVideos[3]
+              print("URL: \(url)")
+              isPlayerActive = true
+            }, label:
+                  {
+            
+            Image("spiderman")
+              .resizable()
+              .scaledToFill()
+              .frame(width: 240, height: 135)
+          })
+          
+        }
+        
+        
+        
+      }
+      
+      
     }
     
     NavigationLink(
