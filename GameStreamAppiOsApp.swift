@@ -2,7 +2,7 @@
 //  GameStreamAppiOsApp.swift
 //  GameStreamAppiOs
 //
-//  Created by Tech Fitco on 9/06/22.
+//  Created by Pierre Juarez U. on 9/06/22.
 //
 
 import SwiftUI

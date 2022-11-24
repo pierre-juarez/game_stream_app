@@ -2,7 +2,7 @@
 //  Home.swift
 //  GameStreamAppiOs
 //
-//  Created by Tech Fitco on 15/06/22.
+//  Created by Pierre Juarez U. on 15/06/22.
 //
 
 import SwiftUI
@@ -22,8 +22,7 @@ struct Home: View {
           Text("Perfil")
         }.tag(0)
       
-      Text("Juegos")
-        .font(.system(size: 30, weight: .bold, design: .rounded))
+      GamesView()
         .tabItem{
           Image(systemName: "gamecontroller")
           Text("Juegos")
@@ -306,9 +305,9 @@ struct submoduleHome:View{
           
           Button(action:
             {
-              url = urlVideos[1]
-              print("URL: \(url)")
-              isPlayerActive = true#imageLiteral(resourceName: "simulator_screenshot_1B7970A6-73ED-4158-A3AF-A15E3F175FB0.png")
+              url = urlVideos[1];
+              print("URL: \(url)");
+              isPlayerActive = true;
             }, label:
                   {
             
