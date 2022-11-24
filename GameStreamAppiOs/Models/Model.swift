@@ -14,9 +14,9 @@ struct Games: Codable {
 }
 
 struct Game: Codable {
-  let title, studio, contentRating, publicationYear, description : String,
+  let title, studio, contentRaiting, publicationYear, description : String,
       platforms, tags, galleryImages : [String],
-      videosUrl: videoUrl
+      videosUrls: videoUrl
   
 }
 
