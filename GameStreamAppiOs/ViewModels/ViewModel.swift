@@ -34,6 +34,7 @@ class ViewModel: ObservableObject {
         }
             
       }catch{
+        // FIXME - API capida :(
         print("Error query" ,error)
       }
       
